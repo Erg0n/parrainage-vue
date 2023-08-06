@@ -24,7 +24,16 @@
 
     <div class="form-floating">
       <input type="text" class="form-control" placeholder="contact" v-model="data.contact" required>
-      <label for="floatingInput">contact </label>
+      <label for="floatingInput">Contact </label>
+    </div>
+
+    <div class="form-floating">
+      <select class="form-select" v-model="data.role" >
+        <option selected>-----</option>
+        <option value="">Utilisateur</option>
+        <option value="[ROLE_ADMIN]">Administrateur</option>
+      </select>
+      <label for="floatingInput">Role </label>
     </div>
     
     <div class="form-floating">
@@ -50,7 +59,8 @@ export default {
         email: '',
         password: '',
         contact: '',
-        codeParrain: ''
+        codeParrain: '',
+        role: ''
     })
 
     const router = useRouter()
@@ -66,6 +76,8 @@ export default {
       )
 
       await router.push('/login')
+      console.log(data);
+      
     }
 
     return {
